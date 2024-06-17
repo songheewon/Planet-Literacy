@@ -1,0 +1,28 @@
+<div class="c-post-card-tag-featured3 c-post-card-tag-featured3{{#unless no-js}} js-post-card__wrap{{/unless}}">
+        <div class="c-post-card-tag-featured3__main">
+            <div class="c-post-card-tag-featured3__title">
+                <a href="{{url absolute=" true"}}" class="c-post-card-tag-featured3__link">{{title}}</a>
+            </div>
+            <div>
+                <a href="{{url absolute=" true"}}">
+                    <div class="c-post-card-tag-featured3__tag-and-date">
+                        <div class="c-post-card-tag-featured3__primary-tag">
+                            {{primary_tag.name}}
+                        </div>
+                        <div class="c-post-card-tag-featured3__date">
+                            <time datetime='{{ date format=' YYYY-MM-DD' }}'>{{ date
+                                format='YYYY-MM-DD' }}</time>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {{#if feature_image}}
+        <div class="c-post-card-tag-featured3__media c-post-card-tag-featured3__media--desktop">
+            <div class="c-post-card-tag-featured3__image--wrap">
+                <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+                    class="c-post-card-tag-featured3__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+            </div>
+        </div>
+        {{/if}}
+</div>

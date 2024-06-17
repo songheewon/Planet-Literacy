@@ -1,0 +1,40 @@
+<div class="c-post-card-big c-post-card-big{{#unless no-js}} js-post-card__wrap{{/unless}}">
+  {{#if feature_image}}
+  <div class="c-post-card-big__media c-post-card-big__media--mobile">
+    <div class="c-post-card-big__image--wrap">
+      <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+        class="c-post-card-big__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+      <a href="{{url absolute=" true"}}" class="c-post-card-big__link--cover"></a>
+    </div>
+  </div>
+  {{/if}}
+  {{#if feature_image}}
+  <div class="c-post-card-big__media c-post-card-big__media--desktop">
+    <div class="c-post-card-big__image--wrap">
+      <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+        class="c-post-card-big__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+      <a href="{{url absolute=" true"}}" class="c-post-card-big__link--cover"></a>
+    </div>
+  </div>
+  {{/if}}
+  <div class="c-post-card-big__main">
+    <div class="c-post-card-big__primary-tag">
+      {{primary_tag.name}}
+    </div>
+    <div class="c-post-card-big__title">
+      <a href="{{url absolute=" true"}}" class="c-post-card-big__link">{{title}}</a>
+    </div>
+    <div class="c-post-card-big__excerpt"><a href="{{url absolute=" true"}}" class="c-post-card-big__link">{{ excerpt
+        }}</a></div>
+    <div>
+      <a href="{{url absolute=" true"}}" class="c-post-card-big__reading-time">
+        <span>글 자세히 읽기&nbsp;&nbsp;&nbsp;</span>
+        <svg width="19" height="9" viewBox="0 0 19 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M18.8618 4.21288L14.658 0.142291C14.507 -0.0284243 14.2415 -0.0483644 14.0652 0.0978633C13.8889 0.244091 13.8683 0.501214 14.0193 0.671929C14.0334 0.688021 14.0485 0.702714 14.0652 0.716357L17.55 4.09499H0.907335C0.675038 4.09499 0.486816 4.27725 0.486816 4.50219C0.486816 4.72712 0.675038 4.90938 0.907335 4.90938H17.5503L14.0655 8.28382C13.8892 8.43004 13.8686 8.68717 14.0196 8.85788C14.1707 9.0286 14.4362 9.04854 14.6125 8.90231C14.6287 8.88867 14.6443 8.87397 14.6584 8.85788L18.8621 4.7873C19.025 4.62847 19.025 4.37205 18.8621 4.21323L18.8618 4.21288Z" fill="#B3B3C3"/>
+</svg>
+
+      </a>
+    </div>
+  </div>
+
+</div>

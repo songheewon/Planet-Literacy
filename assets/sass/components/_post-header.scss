@@ -1,0 +1,126 @@
+/*------------------------------------*\
+  Components > Post Hero
+\*------------------------------------*/
+
+.c-post-media {
+  &__image {
+    margin: auto;
+  }
+
+  &__caption {
+    text-align: center;
+    padding: $space-16 $space-16 0 $space-16;
+    font-size: $type-xs;
+    line-height: $type-xs-lh;
+    font-weight: $type-500;
+    color: var(--color-text-secondary);
+
+    a {
+      text-decoration: underline;
+      text-underline-offset: $space-4;
+      color: var(--color-text-primary);
+
+      @include attention() {
+        color: var(--color-brand);
+      }
+    }
+  }
+}
+
+.c-post-image {
+  margin: auto;
+}
+
+.c-post-header {
+  width: 100%;
+  border-bottom: 1px solid #E9E9EE;
+    padding: 15px 0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+
+    &__button {
+      display: flex;
+      gap: 15px;
+      &--icon {
+        text-align: center;
+      }
+      &--share {
+        padding: 0 5px;
+      }
+    }
+  > * + * {
+    margin-top: $space-24;
+  }
+
+  &__title {
+    font-size: $type--h-sm;
+    line-height: $type--h-sm-lh;
+    letter-spacing: - $global-letter-spacing;
+  }
+
+  &__excerpt {
+    margin-top: $space-8;
+    font-size: $type-lg;
+    line-height: $type-lg-lh;
+
+    @include mq($from: desktop) {
+      font-size: $type-xl;
+      line-height: $type-xl-lh;
+      letter-spacing: - $global-letter-spacing;
+    }
+  }
+
+  &__meta {
+    font-size: $type-sm;
+    line-height: $type-sm-lh;
+    letter-spacing: $global-letter-spacing;
+    
+    display: flex;
+    @include mq($until: desktop) {
+      align-items: center;
+    }
+  }
+
+  &__author {
+    display: flex;
+    align-items: center;
+
+    &_name {
+      font-weight: $type-600;
+    }
+  }
+
+  &__date {
+    color: #B3B3C3;
+    @include mq($until: desktop) {
+      display: none;
+    }
+  }
+
+  &__reading-time {
+    color: #009C82;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    @include mq($until: desktop) {
+      display: none;
+    }
+  }
+
+  &__author_media {
+    width: $space-32;
+    height: $space-32;
+    border-radius: 100%;
+    margin-right: $space-8;
+    background-color: var(--background-secondary);
+  }
+
+  &__author_image {
+    width: $space-32;
+    height: $space-32;
+    object-fit: cover;
+    border-radius: 100%;
+  }
+}

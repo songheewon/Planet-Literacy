@@ -1,0 +1,1827 @@
+/*------------------------------------*\
+  Components > Post Card
+\*------------------------------------*/
+
+.c-post-card {
+  display: flex;
+  column-gap: 20px;
+  overflow: hidden;
+
+  &__header {
+    width: 112px;
+    flex: 0 0 112px;
+
+    @include mq($from: landscape) {
+      width: 274px;
+      flex: 0 0 274px;
+    }
+  }
+
+  &__main {
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+
+    @include mq($from: landscape) {
+      gap: 20px;
+    }
+  }
+}
+
+.c-post-card {
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card {
+  &__tag {
+    &s {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+
+    &--chip {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0 10px;
+      height: 20px;
+      min-width: 40px;
+      border-radius: 2px;
+      background: #E9E9EE;
+
+      color: #333335;
+
+      font-size: 11px;
+      font-weight: 500;
+
+      @include ellipsis(1);
+    }
+  }
+}
+
+.c-post-card {
+  &__author {
+    &--name {
+      color: #B3B3C3;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    &-image {
+      &--wrap {
+        border-radius: 100%;
+        aspect-ratio: 1 / 1;
+        overflow: hidden;
+        background-color: #d5d5d5;
+        border: 1px solid #B9B9B9;
+        width: 36px;
+        height: 36px;
+      }
+
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+  }
+}
+
+.c-post-card {
+  &__date {
+
+  }
+}
+
+.c-post-card {
+  &__media {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+
+    border: 1px solid #D1D1DE;
+    background: #A6E2BE80;
+  }
+
+  &__image {
+    &--wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      overflow: hidden;
+      border: 1px solid #B9B9B9;
+    }
+
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.c-post-card {
+  &__title {
+    flex-grow: 1;
+    color: var(--color-text-primary);
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: -1px;
+    line-height: 22px;
+    @include ellipsis(2);
+
+    @include mq($from: desktop) {
+      font-size: 22px;
+      line-height: 30px;
+
+      flex-grow: 0;
+    }
+  }
+
+  &__reading-time {
+    display: none;
+
+    color: #68A1AA;
+    font-size: 14px;
+    font-weight: 500;
+
+    @include mq($from: landscape) {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+}
+
+/* Small */
+.c-post-card--small {
+  .c-post-card {
+    &__header {
+      width: 112px;
+      flex: 0 0 112px;
+    }
+
+    &__title {
+      font-size: 15px;
+      line-height: 22px;
+    }
+
+    &__main {
+      gap: 6px;
+    }
+  }
+}
+
+/* Big */
+.c-post-card-big {
+  display: flex;
+  gap: 85px;
+  @include mq($until: desktop) {
+    display: block;
+    padding: 20px 0;
+  }
+  
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 30px;
+    font-weight: 900;
+    line-height: 40px;
+    letter-spacing: -1px;
+    @include ellipsis(3);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 32px;
+      letter-spacing: -1px;
+    }
+  }
+  &__main {
+    margin-top: 20px;
+    width: calc(100% - 630px - 85px);
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+  }
+  &__primary-tag {
+    color: #009C82;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    margin-bottom: 10px;
+  }
+  &__tags {
+    display: flex;
+    column-gap: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+    @include mq($until: desktop) {
+      margin-bottom: 10px;
+    }
+  }
+  &__tag {
+    background-color: #9BF5BF;
+    padding: 2px 8px;
+    font-family: Noto Sans KR;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15.93px;
+    border-radius: 10px;
+    color: #333335;
+  }
+  &__excerpt {
+    margin: 20px auto;
+    font-family: Noto Sans KR;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    color: #333335;
+    @include ellipsis(5);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: -0.02em;
+      margin: 10px auto;
+    }
+  }
+  &__reading-time {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #B3B3C3;
+  }
+  &__media {
+    width: 630px;
+    aspect-ratio: 1.575;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    &--mobile {
+      @include mq($from: desktop) {
+        display: none;
+      }
+      margin-bottom: 10px;
+    }
+    &--desktop {
+      @include mq($until: desktop) {
+        display: none;
+      } 
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    object-fit: cover;
+    &--wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #b9b9b9 !important;
+      @include mq($until: desktop) {
+        margin-top: -50px;
+        margin-left: -20px;
+        width: calc(100% + 40px);
+      }
+    }
+  }
+  &__relate {
+    margin-top: 20px;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -1px;
+    @include mq($until: desktop) {
+    }
+    &--list {
+      margin-top: 10px;
+      padding-left: 5px;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: -1px;
+      @include ellipsis(1);
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card-default {
+  display: flex;
+  @include mq($until: desktop) {
+    display: block;
+    padding: 20px 0;
+  }
+  justify-content: space-between;
+  border-bottom: 1px solid #E9E9EE;
+  padding: 30px 0;
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -1px;
+    @include ellipsis(2);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 30px;
+      letter-spacing: -1px;
+    }
+  }
+  &__main {
+    width: 56%;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+  }
+  &__primary-tag {
+    color: var(--accent-color);
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 22px;
+  }
+  &__tags {
+    display: flex;
+    column-gap: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+  }
+  &__tag {
+    background-color: #9BF5BF;
+    padding: 2px 8px;
+    font-family: Noto Sans KR;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15.93px;
+    border-radius: 10px;
+    color: #333335;
+  }
+  &__excerpt {
+    margin: 20px auto;
+    font-family: Noto Sans KR;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    @include ellipsis(3);
+    @include mq($until: desktop) {
+      margin: 10px auto;
+      display: none;
+    }
+  }
+  &__reading-time {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18.82px;
+    color: #68A1AA;
+  }
+  &__media {
+    width: 40%;
+    overflow: hidden;
+    height: 180px;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    &--mobile {
+      @include mq($from: desktop) {
+        display: none;
+      } 
+    }
+    &--desktop {
+      @include mq($until: desktop) {
+        display: none;
+      } 
+    }
+  }
+  &__image {
+    width: 100%;
+    max-height: 400px;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    object-fit: cover;
+    &--wrap {
+      position: relative;
+      border: 1px solid #B9B9B9;
+    }
+  }
+  &__relate {
+    margin-top: 20px;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -1px;
+    @include mq($until: desktop) {
+      margin-top: 10px;
+    }
+    &--list {
+      margin-top: 10px;
+      padding-left: 5px;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: -1px;
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card-tags {
+  display: flex;
+  @include mq($until: desktop) {
+    display: block;
+    padding: 20px 0;
+  }
+  justify-content: space-between;
+  border-bottom: 1px solid #E9E9EE;
+  padding: 30px 0;
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 30px;
+    letter-spacing: -1px;
+    @include ellipsis(2);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 30px;
+      letter-spacing: -1px;
+    }
+  }
+  &__main {
+    width: 50%;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+  }
+  &__primary-tag {
+    color: var(--accent-color);
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 22px;
+  }
+  &__tags {
+    display: flex;
+    column-gap: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+  }
+  &__tag {
+    background-color: #9BF5BF;
+    padding: 2px 8px;
+    font-family: Noto Sans KR;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15.93px;
+    border-radius: 10px;
+    color: #333335;
+  }
+  &__excerpt {
+    font-family: Noto Sans KR;
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: -0.02em;
+    margin: 20px auto;
+    @include ellipsis(3);
+    @include mq($until: desktop) {
+      margin: 10px auto;
+      display: none;
+    }
+  }
+  &__reading-time {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 18.82px;
+    color: #68A1AA;
+  }
+  &__date {
+    font-family: Noto Sans KR;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+    color: #8C8C82;
+    @include mq($until: desktop) {
+      display: none;
+    }
+  }
+  &__media {
+    width: 40%;
+    max-width: 285px;
+    overflow: hidden;
+    height: 180px;
+    @include mq($until: desktop) {
+      width: 100%;
+      max-width: none;
+    }
+    &--mobile {
+      @include mq($from: desktop) {
+        display: none;
+      } 
+    }
+    &--desktop {
+      @include mq($until: desktop) {
+        display: none;
+      } 
+    }
+  }
+  &__image {
+    width: 100%;
+    max-height: 400px;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    object-fit: cover;
+    &--wrap {
+      position: relative;
+      border: 1px solid #B9B9B9;
+    }
+  }
+  &__relate {
+    margin-top: 20px;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -1px;
+    @include mq($until: desktop) {
+      margin-top: 10px;
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-loop {
+  width: 80%; 
+  margin: 0 auto;
+  @include mq($until: desktop) {
+    width: 100%;
+  }
+}
+
+.c-post-card__relate--title {
+  @include ellipsis(1);
+}
+
+.c-post-card-featured:hover {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.35s;
+}
+
+.c-post-card-small:hover {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.35s;
+}
+
+
+.c-post-card-popularest1:hover {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.35s;
+}
+
+.c-post-card-popularest2:hover {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.35s;
+}
+
+.c-post-card-tag-featured:hover {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.35s;
+}
+
+.c-post-card-tag-featured2:hover {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.35s;
+}
+
+.c-post-card-tag-featured3:hover {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+  transition: 0.35s;
+}
+
+.c-post-card-featured {
+  cursor: pointer;
+  max-width: 285px;
+  padding: 10px;
+  min-height: 0;
+  @include mq($until: desktop) {
+    min-height: 0;
+  }
+
+  &__media {
+    width: 100%;
+    aspect-ratio: 3 / 2;
+  }
+  &__image {
+    &--wrap {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #B9B9B9;
+    }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &__main {
+    margin-top: 15px;
+  }
+  &__tag-and-date {
+    display: flex;
+    gap: 10px;
+    @include mq($until: desktop) {
+      display: none;
+    }
+    &--mobile {
+      display: none;
+      @include mq($until: desktop) {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+      } 
+    }
+  }
+  &__primary-tag {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #009C82;
+  }
+  &__date {
+    font-family: Noto Sans KR;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+    color: #B3B3C3;
+  }
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: -1px;
+    margin-top: 10px;
+    @include ellipsis(2);
+  }
+  &__excerpt {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #333335;
+    margin-top: 7px;
+    @include ellipsis(3);
+    @include mq($until: desktop) {
+      display: none;
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card-popularest1:first-child {
+  margin-bottom: 50px;
+  @include mq($until: desktop) {
+    margin-bottom: 0;
+  }
+}
+
+.c-post-card-popularest1 {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+    @include mq($until: desktop) {
+    display: flex;
+    padding: 20px 0;
+  }
+  
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: -1px;
+    @include ellipsis(2);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: -1px;
+    }
+  }
+  &__tag-and-date {
+    display: flex;
+    gap: 15px;
+    @include mq($until: desktop) {
+      display: none;
+    }
+    &--mobile {
+      display: none;
+      @include mq($until: desktop) {
+        display: flex;
+        gap: 15px;
+        margin-top: 5px;
+      }
+    }
+  }
+  &__main {
+    width: calc(100% - 250px);
+    margin-left: 25px;
+    @include mq($until: desktop) {
+      width: calc(100% - 125px);
+    }
+  }
+  &__primary-tag {
+    color: #009C82;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    margin-bottom: 10px;
+  }
+  &__tags {
+    display: flex;
+    column-gap: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+    @include mq($until: desktop) {
+      margin-bottom: 10px;
+    }
+  }
+  &__tag {
+    background-color: #9BF5BF;
+    padding: 2px 8px;
+    font-family: Noto Sans KR;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15.93px;
+    border-radius: 10px;
+    color: #333335;
+  }
+  &__excerpt {
+    margin: 20px auto;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #333335;
+    @include ellipsis(3);
+    @include mq($until: desktop) {
+      display: none;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: -0.02em;
+      margin: 10px auto;
+    }
+  }
+  &__reading-time {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #B3B3C3;
+  }
+  &__media {
+    width: 255px;
+    aspect-ratio: 1.5;
+    @include mq($until: desktop) {
+      width: 100px;
+      aspect-ratio: 1.5;
+    }
+    &--mobile {
+      @include mq($from: desktop) {
+        display: none;
+      }
+      width: 100px;
+      height: 66px;
+      aspect-ratio: 1.5;
+    }
+    &--desktop {
+      @include mq($until: desktop) {
+        display: none;
+      } 
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    object-fit: cover;
+    &--wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #B9B9B9;
+    }
+  }
+  &__relate {
+    margin-top: 20px;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -1px;
+    @include mq($until: desktop) {
+    }
+    &--list {
+      margin-top: 10px;
+      padding-left: 5px;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: -1px;
+      @include ellipsis(1);
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card-popularest2 {
+  padding: 10px;
+  @include mq($from: desktop) {
+    margin-bottom: 25px;
+    height: 100%;
+    min-height: 0;
+  }
+  @include mq($until: desktop) {
+    display: block;
+    padding: 20px 0;
+  }
+  
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: -1px;
+    @include ellipsis(2);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 25px;
+      letter-spacing: -1px;
+    }
+  }
+  &__tag-and-date {
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+  }
+  &__main {
+    width: 100%;
+    @include mq($from: desktop) {
+    }
+  }
+  &__primary-tag {
+    color: #009C82;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    margin-bottom: 10px;
+  }
+  &__tags {
+    display: flex;
+    column-gap: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+    @include mq($until: desktop) {
+      margin-bottom: 10px;
+    }
+  }
+  &__tag {
+    background-color: #9BF5BF;
+    padding: 2px 8px;
+    font-family: Noto Sans KR;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15.93px;
+    border-radius: 10px;
+    color: #333335;
+  }
+  &__excerpt {
+    margin: 20px auto;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #333335;
+    @include ellipsis(3);
+    display: none;
+    @include mq($until: desktop) {
+      display: block;
+      @include ellipsis(3);
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: -0.02em;
+      margin: 10px auto;
+    }
+  }
+  &__reading-time {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #B3B3C3;
+  }
+  &__media {
+    aspect-ratio: 1.75;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    &--mobile {
+      @include mq($from: desktop) {
+        display: none;
+      }
+      margin-bottom: 10px;
+    }
+    &--desktop {
+      @include mq($until: desktop) {
+        display: none;
+      } 
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    object-fit: cover;
+    &--wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #B9B9B9;
+    }
+  }
+  &__relate {
+    margin-top: 20px;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -1px;
+    @include mq($until: desktop) {
+    }
+    &--list {
+      margin-top: 10px;
+      padding-left: 5px;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: -1px;
+      @include ellipsis(1);
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card-tag-featured {
+  margin-top: 20px;
+  border-bottom: 1px solid #E9E9EE;
+  padding: 10px;
+  @include mq($from: desktop) {
+    min-height: 360px;  
+  }
+  cursor: pointer;
+  @include mq($until: desktop) {
+    display: flex;
+    padding: 20px 0;
+  }
+  
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: -1px;
+    @include ellipsis(2);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: -1px;
+    }
+  }
+  &__tag-and-date {
+    display: flex;
+    gap: 15px;
+    margin-top: 12px;
+  }
+  &__main {
+    margin-top: 10px;
+    @include mq($until: desktop) {
+      margin-top: 0px;
+      margin-left: 25px;
+    }
+  }
+  &__primary-tag {
+    color: #009C82;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    margin-bottom: 10px;
+  }
+  &__date {
+    font-family: Noto Sans KR;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    color: #B3B3C3;
+  }
+  &__tags {
+    display: flex;
+    column-gap: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+    @include mq($until: desktop) {
+      margin-bottom: 10px;
+    }
+  }
+  &__tag {
+    background-color: #9BF5BF;
+    padding: 2px 8px;
+    font-family: Noto Sans KR;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15.93px;
+    border-radius: 10px;
+    color: #333335;
+  }
+  &__excerpt {
+    margin: 20px auto;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #333335;
+    @include ellipsis(3);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: -0.02em;
+      margin: 10px auto;
+    }
+  }
+  &__reading-time {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #B3B3C3;
+  }
+  &__media {
+    width: 100%;
+    aspect-ratio: 1.5;
+    @include mq($until: desktop) {
+      width: 100px;
+      height: 66px;
+      aspect-ratio: 1.5;
+    }
+    &--mobile {
+      @include mq($from: desktop) {
+        display: none;
+      }
+      margin-bottom: 10px;
+    }
+    &--desktop {
+      @include mq($until: desktop) {
+        display: none;
+      } 
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    object-fit: cover;
+    &--wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #B9B9B9;
+    }
+  }
+  &__relate {
+    margin-top: 20px;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -1px;
+    @include mq($until: desktop) {
+    }
+    &--list {
+      margin-top: 10px;
+      padding-left: 5px;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: -1px;
+      @include ellipsis(1);
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card-tag-featured2 {
+  margin-top: 20px;
+  padding: 10px;
+  cursor: pointer;
+  @include mq($from: desktop) {
+    min-height: 450px;
+  }
+  @include mq($until: desktop) {
+    display: block;
+    padding: 20px 0;
+  }
+  
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: -1px;
+    @include ellipsis(2);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 18px;
+      font-weight: 700;
+      line-height: 25px;
+      letter-spacing: -1px;
+    }
+  }
+  &__tag-and-date {
+    display: flex;
+    gap: 15px;
+    margin-top: 12px;
+    &--mobile {
+      @include mq($until: desktop) {
+        display: flex;
+        gap: 15px;
+      }
+      display: none;
+    }
+    @include mq($until: desktop) {
+      display: none;
+    }
+  }
+  &__main {
+    margin-top: 10px;
+  }
+  &__primary-tag {
+    color: #009C82;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    margin-bottom: 10px;
+  }
+  &__date {
+    font-family: Noto Sans KR;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    color: #B3B3C3;
+  }
+  &__tags {
+    display: flex;
+    column-gap: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+    @include mq($until: desktop) {
+      margin-bottom: 10px;
+    }
+  }
+  &__tag {
+    background-color: #9BF5BF;
+    padding: 2px 8px;
+    font-family: Noto Sans KR;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15.93px;
+    border-radius: 10px;
+    color: #333335;
+  }
+  &__excerpt {
+    margin: 10px auto;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #333335;
+    @include ellipsis(3);
+    @include mq($until: desktop) {
+      display: none;
+    }
+  }
+  &__reading-time {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #B3B3C3;
+  }
+  &__media {
+    width: 100%;
+    aspect-ratio: 2.07;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    &--mobile {
+      @include mq($from: desktop) {
+        display: none;
+      }
+      margin-bottom: 10px;
+    }
+    &--desktop {
+      @include mq($until: desktop) {
+        display: none;
+      } 
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    object-fit: cover;
+    &--wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #B9B9B9;
+    }
+  }
+  &__relate {
+    margin-top: 20px;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -1px;
+    @include mq($until: desktop) {
+    }
+    &--list {
+      margin-top: 10px;
+      padding-left: 5px;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: -1px;
+      @include ellipsis(1);
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card-tag-featured3 {
+  padding: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #E9E9EE; 
+  @include mq($until: desktop) {
+    display: block;
+    padding: 20px 0;
+  }
+  
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: -1px;
+    @include ellipsis(2);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 32px;
+      letter-spacing: -1px;
+    }
+  }
+  &__tag-and-date {
+    display: flex;
+    gap: 15px;
+    margin-top: 30px;
+  }
+  &__main {
+    max-width: 50%;
+    display: inline;
+    align-content: space-between;
+    min-height: 100px;
+  }
+  &__primary-tag {
+    color: #009C82;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    margin-bottom: 10px;
+  }
+  &__date {
+    font-family: Noto Sans KR;
+font-size: 12px;
+font-weight: 500;
+line-height: 12px;
+color: #B3B3C3;
+  }
+  &__tags {
+    display: flex;
+    column-gap: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+    @include mq($until: desktop) {
+      margin-bottom: 10px;
+    }
+  }
+  &__tag {
+    background-color: #9BF5BF;
+    padding: 2px 8px;
+    font-family: Noto Sans KR;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15.93px;
+    border-radius: 10px;
+    color: #333335;
+  }
+  &__excerpt {
+    margin: 10px auto;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #333335;
+    @include ellipsis(3);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: -0.02em;
+      margin: 10px auto;
+    }
+  }
+  &__reading-time {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #B3B3C3;
+  }
+  &__media {
+    width: 150px;
+    height: 100px;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    &--mobile {
+      @include mq($from: desktop) {
+        display: none;
+      }
+      margin-bottom: 10px;
+    }
+    &--desktop {
+      @include mq($until: desktop) {
+        display: none;
+      } 
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    object-fit: cover;
+    &--wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #B9B9B9;
+    }
+  }
+  &__relate {
+    margin-top: 20px;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -1px;
+    @include mq($until: desktop) {
+    }
+    &--list {
+      margin-top: 10px;
+      padding-left: 5px;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: -1px;
+      @include ellipsis(1);
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card-tag-featured4:hover {
+  box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
+}
+.c-post-card-tag-featured4 {
+  cursor: pointer;
+  justify-content: space-between;
+  border-radius: 30px;
+  overflow: hidden;
+  background-color: #fff;
+
+  @include mq($until: desktop) {
+    border-radius: 10px;
+  }
+  
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: -1px;
+    @include ellipsis(2);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: -1px;
+    }
+  }
+  &__tag-and-date {
+    display: flex;
+    gap: 15px;
+    @include mq($until: desktop) {
+      display: none;
+    }
+    &--mobile {
+      display: none;
+      @include mq($until: desktop) {
+        display: flex;
+        margin-top: 10px;
+      }
+    }
+  }
+  &__main {
+    align-content: space-between;
+    min-height: 100px;
+    padding: 15px 18px;
+    @include mq($until: desktop) {
+      padding: 15px 13px;
+    }
+  }
+  &__primary-tag {
+    color: #009C82;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    margin-bottom: 10px;
+  }
+  &__date {
+    font-family: Noto Sans KR;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 12px;
+      color: #B3B3C3;
+      @include mq($until: desktop) {
+        display: none;
+      }
+  }
+  &__tags {
+    display: flex;
+    column-gap: 8px;
+    margin-bottom: 20px;
+    z-index: 2;
+    @include mq($until: desktop) {
+      margin-bottom: 10px;
+    }
+  }
+  &__tag {
+    background-color: #9BF5BF;
+    padding: 2px 8px;
+    font-family: Noto Sans KR;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 15.93px;
+    border-radius: 10px;
+    color: #333335;
+  }
+  &__excerpt {
+    margin: 10px auto;
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 21px;
+    letter-spacing: -0.02em;
+    color: #333335;
+    @include ellipsis(3);
+    @include mq($until: desktop) {
+      display: none;
+    }
+  }
+  &__reading-time {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #B3B3C3;
+  }
+  &__media {
+    width: 100%;
+    aspect-ratio: 1.55;
+    overflow: hidden;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    &--mobile {
+      @include mq($from: desktop) {
+        display: none;
+      }
+      margin-bottom: 10px;
+    }
+    &--desktop {
+      @include mq($until: desktop) {
+        display: none;
+      } 
+    }
+  }
+  &__image {
+    width: 100%;
+    height: 100%;
+    @include mq($until: desktop) {
+      width: 100%;
+    }
+    object-fit: cover;
+    &--wrap {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border: 1px solid #B9B9B9;
+    }
+  }
+  &__relate {
+    margin-top: 20px;
+    font-family: Noto Sans KR;
+    font-size: 14px;
+    font-weight: 900;
+    line-height: 22px;
+    letter-spacing: -1px;
+    @include mq($until: desktop) {
+    }
+    &--list {
+      margin-top: 10px;
+      padding-left: 5px;
+      font-family: Noto Sans KR;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 22px;
+      letter-spacing: -1px;
+      @include ellipsis(1);
+    }
+  }
+  &__link {
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.c-post-card-small {
+  padding: 13px 10px;
+  cursor: pointer;
+  border-bottom: 1px solid #E9E9EE;
+  width: calc(100% - 20px);
+  min-width: 377px;
+  @include mq($until: desktop) {
+    width: 100%;
+  }
+  &__title {
+    font-family: Noto Sans KR;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: -1px;
+    @include ellipsis(2);
+    @include mq($until: desktop) {
+      font-family: Noto Sans KR;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 22px;
+      letter-spacing: -1px;
+    }
+  }
+  &__tag-and-date {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  &__primary-tag {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #009C82;
+  }
+  &__date {
+    font-family: Noto Sans KR;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 13px;
+    color: #B3B3C3;
+  }
+}
+
+
+.c-post-card-photo {
+  width: 100%;
+  aspect-ratio: 1.5;
+  @include mq($until: desktop) {
+    width: 100%;
+  }
+  &__media {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+  &__image {
+    &--wrap {
+      width: 100%;
+      height: 100%;
+      border: 1px solid #B9B9B9;
+    }
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.c-post-card-recent {
+  color: #333335;
+  font-family: Noto Sans KR;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 25px;
+  letter-spacing: -1px;
+  width: 100%;
+  display: flex;
+  height: fit-content;
+  @include ellipsis(2);
+}

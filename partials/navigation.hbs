@@ -1,0 +1,34 @@
+  <div style="display: none;">{{product_categories}}</div>
+{{#match isDrawer "=" "drawer"}}
+{{!-- <ul class="c-home-hero__navigation"> --}}
+{{#foreach navigation}}
+<li class="c-nav__item c-nav__item--{{slug}} c-header-mobile__nav--item--container">
+  <a href="{{ url absolute="true" }}" class="c-nav__link c-header-mobile__nav--item" style="font-weight: 700 !important;">{{ label }}</a>
+</li>
+{{/foreach}}
+{{!-- </ul> --}}
+{{else}}
+<ul class="c-home-hero__navigation">
+  
+{{#foreach navigation}}
+<li class="c-nav__item c-nav__item--{{slug}}">
+  <a href="{{ url absolute="true" }}" style="color: black" id="nav_id_{{@index}}" onclick="saveToLocalStorage({{@index}})" class="c-nav__link c-home-hero__navigation--item {{#if current}}c-home-hero__navigation--current {{/if}}">{{ label }}</a>
+</li>
+{{/foreach}}
+</ul>
+{{/match}}
+
+<script>
+  function saveToLocalStorage(idx) {
+  try {
+    if (idx == 2) {
+      sessionStorage.setItem("company", "0");
+    }
+    else {
+      sessionStorage.setItem("company", "1");
+    }
+  } catch (error) {
+    console.error('로컬 스토리지에 값을 저장하는 동안 오류가 발생했습니다:', error);
+  }
+}
+</script>

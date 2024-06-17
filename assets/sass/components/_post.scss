@@ -1,0 +1,823 @@
+/*------------------------------------*\
+  Components > Post
+\*------------------------------------*/
+.s-product-related {
+  padding: 60px 0 120px 0;
+
+  &__title {
+    font-family: noto-sans-cjk-kr, san-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 35px;
+    letter-spacing: 0em;
+    margin-bottom: 24px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+
+    @include mq($from: landscape) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 60px 40px;
+    }
+
+    @include mq($from: desktop) {
+      grid-template-columns: repeat(4, 1fr);
+      column-gap: 20px;
+    }
+  }
+}
+
+.s-post-related {
+  @include mq($until: desktop) {
+    display: none;
+  }
+
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 100px;
+
+  &__name {
+    font-weight: 900;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: -1px;
+  }
+
+  &__image-container {
+    width: 100%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  &__title {
+    margin-top: 15px;
+    @include ellipsis(2);
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+  }
+
+  &__info {
+    display: flex;
+    margin-top: 8px;
+  }
+
+  &__author {
+    display: flex;
+
+    &--by {
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0em;
+      color: rgba(185, 185, 185, 1);
+    }
+
+    &--name {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0em;
+    }
+  }
+
+  &__date {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: rgba(185, 185, 185, 1);
+    margin-left: 20px;
+  }
+
+  &__list {
+    margin-top: 20px;
+
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+}
+
+.s-post-related-media {
+  @include mq($from: desktop) {
+    display: none;
+  }
+
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 50px;
+
+  &__name {
+    font-weight: 900;
+    font-size: 25px;
+    line-height: 32px;
+    letter-spacing: -1px;
+  }
+
+  &__image-container {
+    width: 40%;
+  }
+
+  &__image {
+    width: 100%;
+    height: 85px;
+
+    @include mq($from: landscape) {
+      height: 150px;
+    }
+
+    object-fit: cover;
+  }
+
+  &__not-image {
+    width: 50%;
+    margin: auto 0;
+  }
+
+  &__title {
+    @include ellipsis(2);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 20px;
+    letter-spacing: 0em;
+  }
+
+  &__info {
+    display: flex;
+    margin-top: 8px;
+  }
+
+  &__author {
+    display: flex;
+
+    &--by {
+      font-size: 12px;
+      font-style: italic;
+      font-weight: 700;
+      line-height: 24px;
+      letter-spacing: 0em;
+      color: rgba(185, 185, 185, 1);
+    }
+
+    &--name {
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 24px;
+      letter-spacing: 0em;
+    }
+  }
+
+  &__date {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 24px;
+    letter-spacing: 0em;
+    color: rgba(185, 185, 185, 1);
+    margin-left: 10px;
+  }
+
+  &__list {
+    margin-top: 20px;
+
+    &--cover {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  }
+
+  &__component {
+    border-top: 0.5px solid rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    &--last {
+      border-bottom: 0.5px solid rgba(0, 0, 0, 0.2);
+      ;
+    }
+  }
+}
+
+.c-content {
+  border-bottom: 1px solid #E9E9EE;
+  padding: 50px 0;
+}
+.c-post {
+  width: 50%;
+  max-width: 730px;
+  
+  @include mq($until: desktop) {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  &__tag {
+    font-family: Noto Sans KR;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 22px;
+    color: #30C599;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  &__title {
+    margin-bottom: 50px;
+    font-family: Noto Sans KR;
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 33px;
+    letter-spacing: -1px;
+    text-align: center;
+  }
+}
+
+.c-post-community {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 0.5px solid #DDDDDD;
+  border-bottom: 0.5px solid #DDDDDD;
+
+  padding: 20px 24px;
+  margin: 0 auto;
+
+  @include mq($until: desktop) {}
+
+  margin-top: 32px;
+  margin-bottom: 32px;
+
+  &__comment {
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+    color: #757575;
+
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+
+    cursor: pointer;
+
+    @include attention() {
+      .n-hover {
+        display: none;
+      }
+
+      .hover {
+        display: block;
+      }
+    }
+
+    .hover {
+      display: none;
+    }
+  }
+
+  &__share {
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 28px;
+    color: #a7a7a7;
+    position: relative;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    z-index: 10;
+
+    @include attention() {
+      .n-hover {
+        display: none;
+      }
+
+      .hover {
+        display: block;
+      }
+
+      .c-post-community__share--container {
+        display: block;
+      }
+    }
+
+    .hover {
+      display: none;
+    }
+
+    &--container {
+      display: none;
+      padding-top: 15px;
+      position: absolute;
+      top: 100%;
+      right: -16px;
+
+      @include mq($from: tablet) {
+        right: inherit;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 16px;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAARCAYAAADdRIy+AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAAlElEQVQ4y62UXQ3CQBAGPxIEVMLh5CSggFRCFTRBARJOSiUg4SQcDqYvJTwQ2L2fETDZ5Jus5ACYgahRABnIo2QLH9ZeWTiue1OAqUeY+ObRc90vYotw+yPcamUzNtfaTCyyayDgjp/VM0SpEBYg1GZikVoysYitQ/gycmZicZOk0zH9U1Lo/CMvSZezpElSGvTpwg6y8j7CyLmUjwAAAABJRU5ErkJggg==);
+        width: 20px;
+        height: 17px;
+        z-index: 11;
+
+        @include mq($from: tablet) {
+          right: inherit;
+          left: calc(50% - 10px);
+        }
+      }
+    }
+
+    &--list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      padding: 20px;
+      width: 150px;
+
+      filter: drop-shadow(0px 4px 20px rgba(0, 0, 0, 0.25));
+      background: #FFFFFF;
+      border-radius: 12px;
+    }
+
+    &--item {
+
+      a {
+        display: flex;
+        align-items: center;
+        column-gap: 14px;
+      }
+
+      @include attention() {
+        color: #000;
+
+        a svg path {
+          fill: #000;
+        }
+      }
+    }
+  }
+}
+
+.c-post .c-card-author {
+  margin-bottom: 32px;
+}
+
+.c-post-image-header-template {
+  position: relative;
+
+  &__wrap {
+    width: 100vw;
+    height: 565px;
+
+    @include mq($until: desktop) {
+      height: 500px;
+    }
+
+    margin-top: -40px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+  }
+
+  &__title_and_excerpt {
+    position: absolute;
+    top: 60%;
+    left: 20%;
+
+    @include mq($until: desktop) {
+      top: 50%;
+      left: 0;
+      padding: 10px;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    max-width: 730px;
+    margin: 0 auto;
+    color: white;
+    font-family: Noto Sans KR;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 45px;
+    letter-spacing: -1px;
+    width: 80%;
+    @include ellipsis(2);
+
+    @include mq($until: desktop) {
+      font-size: 30px;
+      line-height: 40px;
+      width: 90%;
+      margin: 0;
+      @include ellipsis(3);
+    }
+  }
+
+  &__excerpt {
+    max-width: 730px;
+    margin: 0 auto;
+    margin-top: 25px;
+    color: white;
+    font-family: Noto Sans KR;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    width: 80%;
+    @include ellipsis(1);
+
+    @include mq($until: desktop) {
+      line-height: 25px;
+      font-size: 15px;
+      width: 90%;
+      margin: 0;
+      margin-top: 10px;
+      @include ellipsis(1);
+    }
+  }
+
+  &__info {
+    @include mq($until: desktop) {
+      margin: 0;
+      margin-top: 25px;
+    }
+
+    display: flex;
+    gap: 15px;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 80%;
+    max-width: 730px;
+
+    &--tag {
+      font-family: Noto Sans KR;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 13px;
+      color: #009C82;
+    }
+
+    &--date {
+      font-family: Noto Sans KR;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 12px;
+      color: #B3B3C3;
+    }
+  }
+}
+
+.recent-posts {
+  border-top: 3px solid black;
+  display: block;
+  max-width: 350px;
+  width: 20%;
+  @include mq($until: desktop) {
+    display: none;
+  }
+
+  &__header {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+
+    &--title {
+      font-family: Helvetica Neue;
+      font-size: 24px;
+      font-weight: 900;
+      line-height: 29.45px;
+      letter-spacing: -0.01em;
+    }
+
+    &--badge {
+      font-family: Helvetica Neue;
+      font-size: 12px;
+      font-weight: 900;
+      line-height: 12px;
+      letter-spacing: -0.01em;
+      text-align: center;
+      color: #fff;
+      background-color: #009C82;
+      padding: 1px 10px;
+      display: flex;
+      align-items: center;
+      border-radius: 14.5px;
+    }
+  }
+
+  &__content {
+    margin-top: 20px;
+  }
+  &__number {
+    font-family: Neue Helvetica BQ;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 13px;
+    width: 10%;
+    text-align: start;
+    margin: 25px 0;
+  }
+}
+
+.c-post-half-image-header-template {
+  position: relative;
+  margin: 20px auto;
+  display: flex;
+  max-width: 1170px;
+  justify-content: center;
+  &__left {
+    width: 45vw;
+    height: 405px;
+    display: flex;
+    align-items: center;
+    padding: 0 5%;
+    background-color: #A9DCD3;
+    @include mq($until: desktop) {
+      display: none;
+    }
+    &--tag {
+      font-family: Noto Sans KR;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 13px;
+      border: 1px solid black;
+      padding: 10px 20px;
+      width: fit-content;
+    }
+    &--title {
+      font-family: Noto Sans KR;
+      font-size: 30px;
+      font-weight: 900;
+      line-height: 40px;
+      letter-spacing: -1px;
+      @include ellipsis(2);
+      margin-top: 10px;
+    }
+    &--excerpt {
+      font-family: Noto Sans KR;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      @include ellipsis(2);
+      margin-top: 10px;
+      margin-bottom: 20px;
+
+    }
+    &--date {
+      font-family: Noto Sans KR;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 12px;
+
+    }
+  }
+  &__wrap {
+    width: 45vw;
+    height: 405px;
+
+    @include mq($until: desktop) {
+      height: 500px;
+      width: 100vw;
+      margin-top: -60px;
+      margin-bottom: 0;
+    }
+
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+  }
+
+  &__title_and_excerpt {
+    position: absolute;
+    top: 60%;
+    left: 20%;
+
+    @include mq($until: desktop) {
+      top: 50%;
+      left: 0;
+      padding: 10px;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    max-width: 730px;
+    margin: 0 auto;
+    color: white;
+    font-family: Noto Sans KR;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 45px;
+    letter-spacing: -1px;
+    width: 80%;
+    @include ellipsis(2);
+
+    @include mq($until: desktop) {
+      font-size: 30px;
+      line-height: 40px;
+      width: 90%;
+      margin: 0;
+      @include ellipsis(3);
+    }
+  }
+
+  &__excerpt {
+    max-width: 730px;
+    margin: 0 auto;
+    margin-top: 25px;
+    color: white;
+    font-family: Noto Sans KR;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    width: 80%;
+    @include ellipsis(1);
+
+    @include mq($until: desktop) {
+      line-height: 25px;
+      font-size: 15px;
+      width: 90%;
+      margin: 0;
+      margin-top: 10px;
+      @include ellipsis(1);
+    }
+  }
+
+  &__info {
+    @include mq($until: desktop) {
+      margin: 0;
+      margin-top: 25px;
+    }
+
+    display: flex;
+    gap: 15px;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 80%;
+    max-width: 730px;
+
+    &--tag {
+      font-family: Noto Sans KR;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 13px;
+      color: #009C82;
+    }
+
+    &--date {
+      font-family: Noto Sans KR;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 12px;
+      color: #B3B3C3;
+    }
+  }
+}
+
+
+.c-post-image-header-template-mobile {
+  position: relative;
+  
+  &__wrap {
+    width: 100vw;
+    height: 565px;
+
+    @include mq($until: desktop) {
+      height: 500px;
+    }
+
+    margin-top: -40px;
+    margin-bottom: 50px;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.8);
+  }
+
+  &__title_and_excerpt {
+    position: absolute;
+    top: 60%;
+    left: 20%;
+    display: none;
+    @include mq($until: desktop) {
+      display: block;
+    }
+    @include mq($until: desktop) {
+      top: 50%;
+      left: 0;
+      padding: 10px;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    max-width: 730px;
+    margin: 0 auto;
+    color: white;
+    font-family: Noto Sans KR;
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 45px;
+    letter-spacing: -1px;
+    width: 80%;
+    @include ellipsis(2);
+
+    @include mq($until: desktop) {
+      font-size: 30px;
+      line-height: 40px;
+      width: 90%;
+      margin: 0;
+      @include ellipsis(3);
+    }
+  }
+
+  &__excerpt {
+    max-width: 730px;
+    margin: 0 auto;
+    margin-top: 25px;
+    color: white;
+    font-family: Noto Sans KR;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    width: 80%;
+    @include ellipsis(1);
+
+    @include mq($until: desktop) {
+      line-height: 25px;
+      font-size: 15px;
+      width: 90%;
+      margin: 0;
+      margin-top: 10px;
+      @include ellipsis(1);
+    }
+  }
+
+  &__info {
+    @include mq($until: desktop) {
+      margin: 0;
+      margin-top: 25px;
+    }
+
+    display: flex;
+    gap: 15px;
+    margin: 0 auto;
+    margin-top: 25px;
+    width: 80%;
+    max-width: 730px;
+
+    &--tag {
+      font-family: Noto Sans KR;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 13px;
+      color: #009C82;
+    }
+
+    &--date {
+      font-family: Noto Sans KR;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 12px;
+      color: #B3B3C3;
+    }
+  }
+}

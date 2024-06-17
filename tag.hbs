@@ -1,0 +1,243 @@
+{{!< default}} {{#contentFor 'title' }}{{ meta_title }}{{/contentFor}} <div id="company-sub-navigation"
+  style="display: none; background-color: #009C82; padding: 5px;">
+  <div class="o-grid" style="display: flex; pading-left: 15px;">
+    {{#foreach @site.secondary_navigation as |nav|}}
+    <div class="c-nav__item c-nav__item--{{slug}} c-secondary-nav" style="margin-right: 0;">
+      <a href="{{ nav.url }}"
+        class="c-nav__link c-home-hero__secondary-navigation--item c-secondary-nav {{#if current}} c-nav__link--current {{/if}}"
+        style="font-family: Noto Sans KR; font-size: 14px; font-weight: 700; line-height: 14px;">{{label}}</a>
+    </div>
+    {{/foreach}}
+  </div>
+  </div>
+  <div id="not-company-tag" style="display: none;">
+    {{#get "posts"
+    filter="tag:{{tag.slug}}+featured:true" include="authors,tags" order="featured desc " as |items|}}
+    {{#if items}}
+    <div class="swiper-container swiper-banner c-home-top-banner">
+      <div class="swiper-wrapper">
+        {{#foreach posts}}
+        <div class="swiper-slide">
+          <a href="{{url}}">
+            <div class="c-post-card__image--wrap" style="height: 100%; aspect-ratio: 4/3; position: relative;">
+              {{#if feature_image}}
+              <img class="c-post-card__image"
+                alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+                src="{{img_url feature_image}}" />
+              {{/if}}
+              <div class="swiper-container__title">{{title}}</div>
+              <div class="swiper-container__info">
+                <div class="swiper-container__info--tag">
+                  {{primary_tag.name}}
+                </div>
+                <div class="swiper-container__info--date">
+                  <time class='c-post-header__date' datetime='{{ date format=' YYYY-MM-DD' }}'>{{ date
+                    format='YYYY-MM-DD' }}</time>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        {{/foreach}}
+      </div>
+      {{!-- <div class="swiper-page"></div> --}}
+      {{!-- <div class="swiper-button-prev swiper-banner-btn swiper-banner-btn-prev"><svg width="26" height="26"
+          viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.3555 21.8572L8.07146 12.5717L17.3572 3.28575" stroke="#999999" stroke-width="2" />
+        </svg>
+      </div>
+      <div class="swiper-button-next swiper-banner-btn swiper-banner-btn-next"><svg width="26" height="26"
+          viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.64449 3.85718L17.9285 13.1427L8.64282 22.4286" stroke="#999999" stroke-width="2" />
+        </svg>
+      </div> --}}
+    </div>
+    {{/if}}
+    {{/get}}
+
+    <div class="max-grid">
+      <div class="c-tag__title">{{tag.name}}</div>
+      {{> loop}}
+      <div class="c-tag-pagination__wrap">
+        {{ pagination }}
+      </div>
+    </div>
+  </div>
+
+  <div id="company-tag" style="display: none;">
+    {{#get "posts"
+    filter="tag:{{tag.slug}}+featured:true" include="authors,tags" order="featured desc " as |items|}}
+    {{#if items}}
+    <div class="swiper-container swiper-banner c-home-top-banner">
+      <div class="swiper-wrapper">
+        {{#foreach posts}}
+        <div class="swiper-slide">
+          <a href="{{url}}">
+            <div class="c-post-card__image--wrap" style="height: 100%; aspect-ratio: 4/3; position: relative;">
+              {{#if feature_image}}
+              <img class="c-post-card__image"
+                alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+                src="{{img_url feature_image}}" />
+              {{/if}}
+              <div class="swiper-container__title">{{title}}</div>
+              <div class="swiper-container__info">
+                <div class="swiper-container__info--tag">
+                  {{primary_tag.name}}
+                </div>
+                <div class="swiper-container__info--date">
+                  <time class='c-post-header__date' datetime='{{ date format=' YYYY-MM-DD' }}'>{{ date
+                    format='YYYY-MM-DD' }}</time>
+                </div>
+              </div>
+            </div>
+          </a>
+        </div>
+        {{/foreach}}
+      </div>
+      {{!-- <div class="swiper-page"></div> --}}
+      {{!-- <div class="swiper-button-prev swiper-banner-btn swiper-banner-btn-prev"><svg width="26" height="26"
+          viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.3555 21.8572L8.07146 12.5717L17.3572 3.28575" stroke="#999999" stroke-width="2" />
+        </svg>
+      </div>
+      <div class="swiper-button-next swiper-banner-btn swiper-banner-btn-next"><svg width="26" height="26"
+          viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8.64449 3.85718L17.9285 13.1427L8.64282 22.4286" stroke="#999999" stroke-width="2" />
+        </svg>
+      </div> --}}
+    </div>
+    {{/if}}
+    {{/get}}
+    <div style="margin: 0 10px">
+    <div class="max-grid" style="border-bottom: 2px solid black; padding: 20px 0px">
+      <div class="c-tag__title">{{tag.name}}</div>
+      <div class="c-home-popularest__contents">
+        <div class="c-home-popularest__list2">
+          {{#get "posts" filter="tag:{{tag.slug}}" limit="1" include="tags,authors,date" order="view_count desc" as
+          |items|}}
+          {{#foreach items}}
+          {{> post-card cardFormat="popularest2"}}
+          {{/foreach}}
+          {{/get}}
+        </div>
+        <div class="c-home-popularest__list2--mobile">
+          {{#get "posts" filter="tag:{{tag.slug}}" limit="1" include="tags,authors,date" order="view_count desc" as
+          |items|}}
+          {{#foreach items}}
+          {{> post-card cardFormat="popularest2"}}
+          {{/foreach}}
+          {{/get}}
+        </div>
+        <div class="c-home-popularest__list1">
+          {{#get "posts" filter="tag:{{tag.slug}}" limit="3" include="tags,authors,date" order="view_count desc" as
+          |items|}}
+          {{#foreach items from="2"}}
+          {{> post-card cardFormat="popularest1"}}
+          {{/foreach}}
+          {{/get}}
+        </div>
+      </div>
+    </div>
+    </div>
+
+    {{#if @custom.tags_for_company_post_section}}
+    {{#get "tags" filter="slug:[{{@custom.tags_for_company_post_section}}]" include="count.posts" }}
+    {{#if tags}}
+    {{#foreach tags}}
+    <div style="margin-left: 10px; margin-right: 10px; overflow-x: hidden">
+    <div class="max-grid" style="border-bottom: 2px solid black; padding: 20px 0px; {{#if @last}}border: none;{{/if}}">
+      <div style="display: flex; justify-content: space-between">
+        <a href="{{url absolute="true"}}">
+        <div class="c-home-section__title" style="margin-left: 10px;">{{name}}&nbsp;&nbsp;&nbsp;&nbsp;<svg
+            style="padding-top: 3px;" width="11" height="17" viewBox="0 0 11 17" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd"
+              d="M6.33277 8.50649L0.935168 3.05511L3.06698 0.944336L10.5547 8.50663L3.06575 16.0691L0.934082 13.9582L6.33277 8.50649Z"
+              fill="#009C82" />
+          </svg>
+        </div>
+        </a>
+        <div class="c-home-section__action"
+          style="position: relative; display: flex; column-gap: 20px; margin-right: 10px; cursor: pointer">
+          <div class="swiper2-button-prev-{{@index}} swiper2-btn swiper2-btn--prev"><svg width="26" height="26"
+              viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M17.3555 21.8572L8.07146 12.5717L17.3572 3.28575" stroke="#999999" stroke-width="2" />
+            </svg>
+          </div>
+          <div class="swiper2-button-next-{{@index}} swiper2-btn swiper2-btn--next"><svg width="26" height="26"
+              viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M8.64449 3.85718L17.9285 13.1427L8.64282 22.4286" stroke="#999999" stroke-width="2" />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div class="c-home-section__main" style="position: relative; overflow: hidden;">
+        {{#get "posts" filter="tag:{{slug}}" include="tags,authors" order="published_at desc" as |posts|}}
+        {{#if posts}}
+        <div class="swiper-container c-archive-grid c-home-section__main swiper2-{{@index}}">
+          <div class="swiper-wrapper">
+            {{#foreach posts}}
+            <div class="swiper-slide">
+              {{> post-card/featured }}
+            </div>
+            {{/foreach}}
+          </div>
+        </div>
+        {{/if}}
+        {{/get}}
+      </div>
+    </div>
+    </div>
+    {{/foreach}}
+    {{/if}}
+    {{/get}}
+    {{/if}}
+
+<div class="c-company-related">
+  {{#if @custom.tags_for_company_post_section}}
+    <div class="c-company-related__title">연관된 인사이트</div>
+  <div class="max-grid c-home-2tags">
+    {{#get "tags" filter="slug:[{{@custom.tags_for_company_post_section}}]" include="count.posts" }}
+    {{#if tags}}
+    {{#foreach tags from="1" to="2"}}
+    <div class="c-home-2tags__tag">
+      <div class="c-archive-grid" style="gap: 0">
+        {{#get "posts" filter="tag:{{slug}}+featured:true" include="tags,authors" limit="1" order="view_count desc" as |posts|}}
+        {{#if posts}}
+        {{#foreach posts}}
+        {{#match @index "=" 0}}
+        {{> post-card cardFormat="tag-featured2"}}
+        {{/match}}
+        {{/foreach}}
+        {{/if}}
+        {{/get}}
+      </div>
+    </div>
+    {{/foreach}}
+    {{/if}}
+    {{/get}}
+  </div>
+  {{/if}}
+</div>
+
+    <div class="c-company-banner">
+      <div class="c-company-banner__title">당신의 지속가능성을 위해 무엇을 도와드릴까요?</div>
+      <a href=""><div class="c-company-banner__btn">Conversation</div></a>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const isCompany = sessionStorage.getItem('company');
+      if (isCompany == "0") {
+        document.getElementById("company-sub-navigation").style.display = "block";
+        document.getElementById("company-tag").style.display = "block";
+        document.getElementById("not-company-tag").style.display = "none";
+      }
+      else {
+        document.getElementById("company-sub-navigation").style.display = "none";
+        document.getElementById("company-tag").style.display = "none";
+        document.getElementById("not-company-tag").style.display = "block";
+      }
+    }
+  </script>

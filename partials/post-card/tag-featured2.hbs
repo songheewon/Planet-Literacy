@@ -1,0 +1,48 @@
+<div class="c-post-card-tag-featured2 c-post-card-tag-featured2{{#unless no-js}} js-post-card__wrap{{/unless}}">
+    <a href="{{url absolute=" true"}}">
+        {{#if feature_image}}
+        <div class="c-post-card-tag-featured2__media">
+            <div class="c-post-card-tag-featured2__image--wrap">
+                <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+                    class="c-post-card-tag-featured2__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+            </div>
+        </div>
+        {{/if}}
+        <a href="{{url absolute=" true"}}">
+            <div class="c-post-card-tag-featured2__main">
+                <div>
+                    <a href="{{url absolute=" true"}}">
+                        <div class="c-post-card-tag-featured2__tag-and-date--mobile">
+                            <div class="c-post-card-tag-featured2__primary-tag">
+                                {{primary_tag.name}}
+                            </div>
+                            <div class="c-post-card-tag-featured2__date">
+                                <time datetime='{{ date format=' YYYY-MM-DD' }}'>{{ date
+                                    format='YYYY-MM-DD' }}</time>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <div class="c-post-card-tag-featured2__title">
+                    <a href="{{url absolute=" true"}}" class="c-post-card-tag-featured2__link">{{title}}</a>
+                </div>
+                <div class="c-post-card-tag-featured2__excerpt"><a href="{{url absolute=" true"}}"
+                        class="c-post-card-big__link">{{ excerpt
+                        }}</a></div>
+                <div>
+                    <a href="{{url absolute=" true"}}">
+                        <div class="c-post-card-tag-featured2__tag-and-date">
+                            <div class="c-post-card-tag-featured2__primary-tag">
+                                {{primary_tag.name}}
+                            </div>
+                            <div class="c-post-card-tag-featured2__date">
+                                <time datetime='{{ date format=' YYYY-MM-DD' }}'>{{ date
+                                    format='YYYY-MM-DD' }}</time>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        </a>
+</div>
+</a>
+</div>

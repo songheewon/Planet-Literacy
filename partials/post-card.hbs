@@ -1,0 +1,29 @@
+{{#if cardFormat}}
+{{#match cardFormat "=" "small"}}
+{{> post-card/small }}
+{{else match cardFormat "=" "big"}}
+{{> post-card/big }}
+{{else match cardFormat "=" "featured"}}
+{{> post-card/featured }}
+{{else match cardFormat "=" "popularest1"}}
+{{> post-card/popularest1 }}
+{{else match cardFormat "=" "popularest2"}}
+{{> post-card/popularest2 }}
+{{else match cardFormat "=" "tag-featured"}}
+{{> post-card/tag-featured }}
+{{else match cardFormat "=" "tag-featured2"}}
+{{> post-card/tag-featured2 }}
+{{else match cardFormat "=" "tag-featured3"}}
+{{> post-card/tag-featured3 }}
+{{else match cardFormat "=" "tag-featured4"}}
+{{> post-card/tag-featured4 }}
+{{else match cardFormat "=" "photo"}}
+{{> post-card/photo }}
+{{else match cardFormat "=" "recent"}}
+{{> post-card/recent }}
+{{else}}
+{{> post-card/default }}
+{{/match}}
+{{else}}
+{{> post-card/default }}
+{{/if}}

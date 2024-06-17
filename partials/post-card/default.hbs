@@ -1,0 +1,38 @@
+<div class="c-post-card-default c-post-card-default{{#unless no-js}} js-post-card__wrap{{/unless}}">
+{{#if feature_image}}
+  <div class="c-post-card-default__media c-post-card-big__media--mobile">
+    <div class="c-post-card-default__image--wrap">
+    <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+      class="c-post-card-default__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+      <a href="{{url absolute=" true"}}" class="c-post-card-default__link--cover"></a>
+    </div>
+  </div>
+  {{/if}}
+  <div class="c-post-card-default__main">
+    <div class="c-post-card-default__primary-tag">
+      {{primary_tag.name}}
+    </div>
+    <div class="c-post-card-default__title">
+      <a href="{{url absolute=" true"}}" class="c-post-card-default__link">{{title}}</a>
+    </div>
+    <div class="c-post-card-default__excerpt"><a href="{{url absolute=" true"}}" class="c-post-card-default__link">{{ excerpt }}</a></div>
+    <ul class="c-post-card-default__relate--list">
+    {{#get 'posts' limit='3' include='authors' filter='tags:[{{primary_tag.slug}}]' order="published_at desc" as |related-posts|}}
+      {{#foreach related-posts}}
+      {{#match @index "!=" 0}}
+      <li class="c-post-card__relate--title"><a href="{{url}}">{{title}}</a></li>
+      {{/match}}
+      {{/foreach}}
+    {{/get}}
+    </ul>
+  </div>
+  {{#if feature_image}}
+  <div class="c-post-card-default__media c-post-card-default__media--desktop">
+    <div class="c-post-card-default__image--wrap">
+    <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+      class="c-post-card-default__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+      <a href="{{url absolute=" true"}}" class="c-post-card-default__link--cover"></a>
+    </div>
+  </div>
+  {{/if}}
+</div>

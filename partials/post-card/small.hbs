@@ -1,0 +1,23 @@
+<a href="{{url absolute=" true"}}">
+  <div class="c-post-card-small c-post-card-small{{#unless no-js}} js-post-card__wrap{{/unless}}">
+    <a href="{{url absolute=" true"}}">
+      <div class="c-post-card-small__main">
+        <div class="c-post-card-small__title">
+          <a href="{{url absolute=" true"}}" class="c-post-card-small__link">{{title}}</a>
+        </div>
+        <a href="{{url absolute=" true"}}">
+          <div class="c-post-card-small__tag-and-date">
+            <div class="c-post-card-small__primary-tag">
+              {{primary_tag.name}}
+            </div>
+            <div class="c-post-card-small__date">
+              <time datetime='{{ date format=' YYYY-MM-DD' }}'>{{ date
+                format='YYYY-MM-DD' }}</time>
+            </div>
+          </div>
+        </a>
+      </div>
+    </a>
+
+  </div>
+</a>

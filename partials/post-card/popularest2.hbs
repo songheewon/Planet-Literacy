@@ -1,0 +1,34 @@
+<div class="c-post-card-popularest2 c-post-card-popularest2{{#unless no-js}} js-post-card__wrap{{/unless}}">
+  {{#if feature_image}}
+  <div class="c-post-card-popularest2__media c-post-card-popularest2__media--mobile">
+    <div class="c-post-card-popularest2__image--wrap">
+      <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+        class="c-post-card-popularest2__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+      <a href="{{url absolute=" true"}}" class="c-post-card-popularest2__link--cover"></a>
+    </div>
+  </div>
+  {{/if}}
+  {{#if feature_image}}
+  <div class="c-post-card-popularest2__media c-post-card-popularest2__media--desktop">
+    <div class="c-post-card-popularest2__image--wrap">
+      <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+        class="c-post-card-popularest2__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+      <a href="{{url absolute=" true"}}" class="c-post-card-popularest2__link--cover"></a>
+    </div>
+  </div>
+  {{/if}}
+  <div class="c-post-card-popularest2__main">
+    <div class="c-post-card-popularest2__tag-and-date">
+      <div class="c-post-card-popularest2__primary-tag">
+        {{primary_tag.name}}
+      </div>
+      <div class="c-post-card-featured__date">
+        <time datetime='{{ date format=' YYYY-MM-DD' }}'>{{ date
+          format='YYYY-MM-DD' }}</time>
+      </div>
+    </div>
+    <div class="c-post-card-popularest2__title">
+      <a href="{{url absolute="true"}}">{{title}}</a>
+    </div>
+  </div>
+</div>

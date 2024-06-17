@@ -1,0 +1,317 @@
+{{!< default}} {{#contentFor 'title' }}{{ meta_title }}{{/contentFor}} {{!-- [Home Top Section] --}} {{!-- [Home Top
+  Featured Contents (Only one)] --}} <div class="max-grid">
+  {{#get "posts" filter="featured:true" limit="1" include="tags,authors,date"}}
+  {{#foreach posts}}
+  {{> post-card cardFormat="big"}}
+  {{/foreach}}
+  {{/get}}
+  </div>
+
+  {{!-- [Home Featured Contents (4 Contents)] --}}
+  <div class="max-grid">
+    <div class="c-home-featured__title">에디터 추천</div>
+    <div class="c-home-featured__contents">
+      {{#get "posts" filter="featured:true" limit="5" include="tags,authors,date" as |items|}}
+      {{#foreach items from="2"}}
+      {{> post-card cardFormat="featured"}}
+      {{/foreach}}
+      {{/get}}
+    </div>
+  </div>
+
+  {{!-- [Home Popularest Contents (3 Contents)] --}}
+  <div class="max-grid" style="border: none;">
+    <div class="c-home-popularest__title">많이 본 아티클</div>
+    <div class="c-home-popularest__contents">
+      <div class="c-home-popularest__list2--mobile">
+        {{#get "posts" filter="" limit="1" include="tags,authors,date" order="view_count desc" as |items|}}
+        {{#foreach items}}
+        {{> post-card cardFormat="popularest2"}}
+        {{/foreach}}
+        {{/get}}
+      </div>
+      <div class="c-home-popularest__list1">
+        {{#get "posts" filter="" limit="3" include="tags,authors,date" order="view_count desc" as |items|}}
+        {{#foreach items from="2"}}
+        {{> post-card cardFormat="popularest1"}}
+        {{/foreach}}
+        {{/get}}
+      </div>
+      <div class="c-home-popularest__list2">
+        {{#get "posts" filter="" limit="1" include="tags,authors,date" order="view_count desc" as |items|}}
+        {{#foreach items}}
+        {{> post-card cardFormat="popularest2"}}
+        {{/foreach}}
+        {{/get}}
+      </div>
+    </div>
+  </div>
+
+
+  {{!-- [Home Banner Section] --}}
+  <div class="max-grid" style="border: none;">
+    <div class="c-home-banner c-home-banner__desktop">
+      <div class="c-home-banner__message">
+        <div class="c-home-banner__title">한달에 한번 기업의 지속가능성을 위한 지식과 정보를 공유합니다.</div>
+        <div class="c-home-banner__title">지금 바로 이메일을 등록하세요.</div>
+      </div>
+      <form data-members-form='subscribe' class='c-subscribe-form is-membership {{ formClass }}'>
+        <div class='c-form-group'>
+          <label for='{{ inputLabel }}' class='u-hidden-visually'>{{t 'Your email address' }}</label>
+          <input type='email' name='email' class='c-form-group__input' id='{{ inputLabel }}' placeholder='Email을 입력하세요.'
+            required data-members-email>
+          <button type='submit' value='{{t ' Subscribe' }}' class='c-btn c-form-group__btn'>뉴스레터 신청하기</button>
+        </div>
+
+        <div class='c-alert c-alert--success'>{{t 'Please check your inbox and click the link to confirm your
+          subscription.' }}</div>
+        <div class='c-alert c-alert--invalid'>{{t 'Please enter a valid email address!' }}</div>
+        <div class='c-alert c-alert--error'>{{t 'An error occurred, please try again later.' }}</div>
+      </form>
+    </div>
+    <div class="c-home-banner c-home-banner__mobile">
+      <div class="c-home-banner__message">
+        <div class="c-home-banner__title">한달에 한번 기업의 지속가능성을 위한</div>
+        <div class="c-home-banner__title">지식과 정보를 공유합니다.</div>
+        <div class="c-home-banner__title">지금 바로 이메일을 등록하세요.</div>
+      </div>
+      <form data-members-form='subscribe' class='c-subscribe-form is-membership {{ formClass }}'>
+        <div class='c-form-group'>
+          <label for='{{ inputLabel }}' class='u-hidden-visually'>{{t 'Your email address' }}</label>
+          <input type='email' name='email' class='c-form-group__input' id='{{ inputLabel }}' placeholder='Email을 입력하세요.'
+            required data-members-email>
+          <button type='submit' value='{{t ' Subscribe' }}' class='c-btn c-form-group__btn'>뉴스레터 신청하기</button>
+        </div>
+
+        <div class='c-alert c-alert--success'>{{t 'Please check your inbox and click the link to confirm your
+          subscription.' }}</div>
+        <div class='c-alert c-alert--invalid'>{{t 'Please enter a valid email address!' }}</div>
+        <div class='c-alert c-alert--error'>{{t 'An error occurred, please try again later.' }}</div>
+      </form>
+    </div>
+  </div>
+  {{!-- [Home Tags Contents (3 Tags)] --}}
+  {{#if @custom.tags_for_home_post_section}}
+  <div class="max-grid c-home-3tags">
+    {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
+    {{#if tags}}
+    {{#foreach tags from="1" to="3"}}
+    <div class="c-home-3tags__tag">
+      <div class="c-home-tags__title">{{name}}</div>
+      <div class="c-archive-grid" style="gap: 0">
+        {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="3" order="published_at desc" as |posts|}}
+        {{#if posts}}
+        {{#foreach posts}}
+        {{#match @index "=" 0}}
+        {{> post-card cardFormat="tag-featured"}}
+        {{else}}
+        {{> post-card cardFormat="small"}}
+        {{/match}}
+        {{/foreach}}
+        {{/if}}
+        {{/get}}
+      </div>
+    </div>
+    {{/foreach}}
+    {{/if}}
+    {{/get}}
+  </div>
+  {{/if}}
+
+  {{!-- [Home Tags Contents (2 Tags)] --}}
+  {{#if @custom.tags_for_home_post_section}}
+  <div class="max-grid c-home-2tags">
+    {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
+    {{#if tags}}
+    {{#foreach tags from="4" to="5"}}
+    <div class="c-home-2tags__tag">
+      <div class="c-home-tags__title">{{name}}</div>
+      <div class="c-archive-grid" style="gap: 0">
+        {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="1" order="published_at desc" as |posts|}}
+        {{#if posts}}
+        {{#foreach posts}}
+        {{#match @index "=" 0}}
+        {{> post-card cardFormat="tag-featured2"}}
+        {{/match}}
+        {{/foreach}}
+        {{/if}}
+        {{/get}}
+      </div>
+    </div>
+    {{/foreach}}
+    {{/if}}
+    {{/get}}
+  </div>
+  {{/if}}
+
+
+  {{!-- [Home Tags Contents (1 Tag)] --}}
+  {{#if @custom.tags_for_home_post_section}}
+  <div class="c-home-1tag__desktop">
+    <div class="max-grid" style="border: 0">
+      {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
+      {{#if tags}}
+      {{#foreach tags from="6" to="6"}}
+      <div style="">
+        <div class="c-home-tags__title">{{name}}</div>
+        <div class="c-archive-grid" style="margin-top: 20px; gap: 0">
+          {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="6" order="published_at desc" as |posts|}}
+          {{#if posts}}
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 20px;">
+            {{#foreach posts}}
+            {{> post-card cardFormat="tag-featured3"}}
+            {{/foreach}}
+          </div>
+          {{/if}}
+          {{/get}}
+        </div>
+      </div>
+      {{/foreach}}
+      {{/if}}
+      {{/get}}
+    </div>
+  </div>
+
+  <div class="c-home-1tag__mobile">
+    <div class="max-grid" style="border: 0">
+      {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
+      {{#if tags}}
+      {{#foreach tags from="6" to="6"}}
+      <div style="">
+        <div class="c-home-tags__title">{{name}}</div>
+        <div class="c-archive-grid" style="margin-top: 20px; gap: 0">
+          {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="6" order="published_at desc" as |posts|}}
+          {{#if posts}}
+          {{#foreach posts}}
+          {{> post-card cardFormat="popularest1"}}
+          {{/foreach}}
+          {{/if}}
+          {{/get}}
+        </div>
+      </div>
+      {{/foreach}}
+      {{/if}}
+      {{/get}}
+    </div>
+  </div>
+  {{/if}}
+
+  {{!-- [Home People Section] --}}
+  <div class="c-home-people">
+    <div class="c-home-people__title">
+      People
+    </div>
+    <div class="c-home-people__excerpt">
+      지속가능성을 위한 당신의 Vison 이야기가 세상을 변화시킵니다.
+    </div>
+    <div class="c-home-people__contents">
+      {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
+      {{#if tags}}
+      {{#foreach tags from="7" to="7"}}
+      {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="3" order="published_at desc" as |posts|}}
+      {{#if posts}}
+      {{#foreach posts}}
+      {{> post-card cardFormat="tag-featured4"}}
+      {{/foreach}}
+      {{/if}}
+      {{/get}}
+      
+      {{/foreach}}
+      {{/if}}
+      {{/get}}
+    </div>
+    {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
+      {{#if tags}}
+      {{#foreach tags from="7" to="7"}}
+    <a href="{{url}}">
+        <div class="c-home-people__btn">인터뷰 전체보기</div>
+      </a>
+      {{/foreach}}
+      {{/if}}
+      {{/get}}
+  </div>
+
+{{!-- [Home Graphic Section] --}}
+{{#if @custom.tags_for_home_post_section}}
+  <div class="max-grid">
+    {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
+    {{#if tags}}
+    {{#foreach tags from="8" to="8"}}
+    <div class="">
+      <div class="c-home-tags__title">{{name}}</div>
+      <div class="c-home-photo-tag">
+        <div class="c-home-photo-tag__bigger">
+        {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="10" order="published_at desc" as |posts|}}
+        {{#if posts}}
+        {{#foreach posts}}
+        {{#match @index "=" 0}}
+        {{> post-card cardFormat="popularest2"}}
+        {{else}}
+        {{/match}}
+        {{/foreach}}
+        {{/if}}
+        {{/get}}
+        </div>
+        <div class="c-home-photo-tag__photos">
+        {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="10" order="published_at desc" as |posts|}}
+        {{#if posts}}
+        {{#foreach posts}}
+        {{#match @index "=" 0}}
+        {{else}}
+        {{> post-card cardFormat="photo"}}
+        {{/match}}
+        {{/foreach}}
+        {{/if}}
+        {{/get}}
+        </div>
+        </div>
+    </div>
+    {{/foreach}}
+    {{/if}}
+    {{/get}}
+  </div>
+  {{/if}}
+
+
+  {{!-- [Home Category Section] --}}
+  {{#if @site.home_visible_shop_section}}
+  <section class="c-home-shop-section">
+    <div class="c-home-products-carousel">
+      <div class="o-grid">
+        <div class="o-grid__col o-grid__col--full">
+          {{> common/products/carousel-section which="home" nav="true" title=@site.shop_section_title }}
+        </div>
+      </div>
+    </div>
+  </section>
+  {{/if}}
+
+
+  {{!-- [Home Category Section 2] --}}
+  <script>
+    // =====================
+    // Home Hero Swiper
+    // =====================
+
+    const heroDesktopSwiper = new Swiper('.c-home-hero__desktop .c-home-hero__swiper', {
+      loop: true,
+      pagination: {
+        el: '.c-home-hero__desktop .swiper-pagination',
+        clickable: true
+      },
+      autoplay: {
+        delay: 3000,
+      },
+    });
+
+    const heroMobileSwiper = new Swiper('.c-home-hero__mobile .c-home-hero__swiper', {
+      loop: true,
+      pagination: {
+        el: '.c-home-hero__mobile .swiper-pagination',
+        clickable: true
+      },
+      autoplay: {
+        delay: 3000,
+      },
+    });
+  </script>
