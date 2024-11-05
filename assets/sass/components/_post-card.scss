@@ -1792,6 +1792,7 @@ color: #B3B3C3;
 
 .c-post-card-photo {
   width: 100%;
+  max-height: 120px;
   aspect-ratio: 1.5;
   @include mq($until: desktop) {
     width: 100%;

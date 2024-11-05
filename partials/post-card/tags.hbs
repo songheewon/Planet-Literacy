@@ -1,9 +1,9 @@
 <div class="c-post-card-tags c-post-card-tags{{#unless no-js}} js-post-card__wrap{{/unless}}">
-{{#if feature_image}}
+  {{#if feature_image}}
   <div class="c-post-card-tags__media c-post-card-big__media--mobile">
     <div class="c-post-card-tags__image--wrap">
-    <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
-      class="c-post-card-tags__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+      <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+        class="c-post-card-tags__image lazyload" src="{{img_url feature_image absolute=" true" }}" />
       <a href="{{url absolute=" true"}}" class="c-post-card-tags__link--cover"></a>
     </div>
   </div>
@@ -15,14 +15,15 @@
     <div class="c-post-card-tags__title">
       <a href="{{url absolute=" true"}}" class="c-post-card-tags__link">{{title}}</a>
     </div>
-    <div class="c-post-card-tags__excerpt"><a href="{{url absolute=" true"}}" class="c-post-card-tags__link">{{ excerpt }}</a></div>
+    <div class="c-post-card-tags__excerpt"><a href="{{url absolute=" true"}}" class="c-post-card-tags__link">{{ excerpt
+        }}</a></div>
     <div class="c-post-card-tags__date">{{ date format='YYYY년 MM월 DD일' }}</div>
   </div>
   {{#if feature_image}}
   <div class="c-post-card-tags__media c-post-card-tags__media--desktop">
     <div class="c-post-card-tags__image--wrap">
-    <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
-      class="c-post-card-tags__image lazyload" src="{{img_url feature_image absolute=" true" }}">
+      <img alt="{{#if feature_image_alt}}{{ feature_image_alt }}{{ else }}{{ title }}{{/if}}"
+        class="c-post-card-tags__image lazyload" src="{{img_url feature_image absolute=" true" }}" />
       <a href="{{url absolute=" true"}}" class="c-post-card-tags__link--cover"></a>
     </div>
   </div>

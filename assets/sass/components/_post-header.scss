@@ -33,9 +33,6 @@
 
 .c-post-header {
   width: 100%;
-  border-bottom: 1px solid #E9E9EE;
-    padding: 15px 0;
-    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
 
@@ -47,6 +44,9 @@
       }
       &--share {
         padding: 0 5px;
+      }
+      @include mq($until: desktop) {
+        margin-top: 20px;
       }
     }
   > * + * {
@@ -75,7 +75,6 @@
     font-size: $type-sm;
     line-height: $type-sm-lh;
     letter-spacing: $global-letter-spacing;
-    
     display: flex;
     @include mq($until: desktop) {
       align-items: center;
@@ -88,6 +87,12 @@
 
     &_name {
       font-weight: $type-600;
+      margin-right: 20px;
+      @include mq($until: desktop) {
+        margin-right: 10px;
+      }
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -122,5 +127,14 @@
     height: $space-32;
     object-fit: cover;
     border-radius: 100%;
+  }
+}
+
+.c-post-article {
+  display: flex; 
+  width: 100%; 
+  justify-content: space-between;
+  @include mq($until: desktop) {
+    display: block;
   }
 }

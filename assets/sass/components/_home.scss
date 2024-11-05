@@ -1603,7 +1603,6 @@ margin-bottom: 10px;
 }
 
 .swiper-slide {
-  max-width: 1200px;
   height: 360px;
 }
 
@@ -1623,21 +1622,14 @@ margin-bottom: 10px;
   scrollbar-width: none; /* 파이어폭스 */
 }
 .c-home-top-banner {
-  border: 1px solid #d9d9d9;
   @include mq($until: desktop) {
     border-radius: 0;
     margin: 0;
     margin-bottom: 20px;
     height: 300px;
   }
-
-  overflow-x: hidden;
-  margin: 30px auto;
-  max-width: 1200px;
-  height: 360px;
-  background-color: rgba(88, 89, 110, 0.5);
+  height: 500px;
   position: relative;
-  border-radius: 20px;
   &__mobile {
     background-color: rgba(88, 89, 110, 0.5);
     border-radius: 0;
@@ -1658,26 +1650,55 @@ margin-bottom: 10px;
 
 .swiper-container {
   &__title {
-    position: absolute;
-    top: 60%; 
-    color: white; 
+    color: black; 
     font-family: Noto Sans KR;
     font-size: 30px;
     font-weight: 900;
     line-height: 40px;
     letter-spacing: -1px;
-    width: 40%;
-    left: 7%;
-    @include ellipsis(2);
+    width: 90%;
+    text-align: left;
+    margin: 5%;
+    margin-bottom: 2%;
+    @include ellipsis(1);
     @include mq($until: desktop) {
       top: 55%;
       width: 50%;
     }
   }
+  &__excerpt {
+    font-family: Noto Sans KR;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 16px;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 2%;
+    @include ellipsis(1);
+  }
+  &__detail {
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 13px;
+    color: #B3B3C3;
+    margin: 5%;
+  }
+  &__banner {
+    z-index: 1;
+    position: absolute; 
+    top: 30%; 
+    left: 20%;
+    background-color: white;
+    width: 60%;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.03);
+    @include mq($until: desktop) {
+      display: none;
+    }
+
+  }
   &__info {
-    position: absolute;
-    top: 87%;
-    left: 7%;
+    margin-left: 5%;
+    margin-right: 5%;
     display: flex;
     gap: 10px;
     &--tag {
@@ -1698,10 +1719,11 @@ margin-bottom: 10px;
 }
 
 .c-post-image-header-template__wrap {
-  mask-image: linear-gradient(180deg, rgba(37, 37, 37, 0) 0%, #252525 100%);
+  filter: brightness(0.75);
 }
 
 
 .c-post-card__image--wrap {
-  mask-image: linear-gradient(180deg, rgba(37, 37, 37, 0) 0%, #252525 100%);
+  filter: brightness(0.75);
+  border: 0 !important;
 }

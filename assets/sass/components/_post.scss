@@ -430,7 +430,8 @@
     font-weight: 900;
     line-height: 45px;
     letter-spacing: -1px;
-    width: 80%;
+    width: 100%;
+    margin-left: 10%;
     @include ellipsis(2);
 
     @include mq($until: desktop) {
@@ -451,7 +452,9 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 16px;
-    width: 80%;
+    width: 100%;
+    margin-left: 10%;
+    
     @include ellipsis(1);
 
     @include mq($until: desktop) {
@@ -496,13 +499,17 @@
 }
 
 .recent-posts {
+  position: absolute;
+  top: 0;
+  left: calc(100% + 40px);
   border-top: 3px solid black;
   display: block;
-  max-width: 350px;
-  width: 20%;
-  @include mq($until: desktop) {
-    display: none;
-  }
+  width: 250px;
+  transform: translate(0%, 0%);
+  
+  // @include mq($until: desktop) {
+  //   display: none;
+  // }
 
   &__header {
     display: flex;

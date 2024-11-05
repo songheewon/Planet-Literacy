@@ -148,13 +148,13 @@ $(document).ready(function() {
 
   $load_posts_button.click(function(e) {
     e.preventDefault();
-
+    console.log($('link[rel=next]'))
     var request_next_link =
-      pagination_next_url.split(/page/)[0] +
+    window.location.href +
       'page/' +
       pagination_next_page_number +
       '/';
-
+      console.log(request_next_link);
     $.ajax({
       url: request_next_link,
       beforeSend: function() {
@@ -162,8 +162,8 @@ $(document).ready(function() {
         $load_posts_button.addClass('c-btn--loading');
       }
     }).done(function(data) {
-      var posts = $('.js-post-card__wrap', data);
-
+      console.log(data)
+      var posts = $('.c-post-card-featured', data);
       $('.js-grid').append(posts);
 
       $load_posts_button.text(decoding_translation_chars(pagination_more_posts_text));

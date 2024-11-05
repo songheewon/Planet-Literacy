@@ -201,13 +201,13 @@
     <div class="c-home-people__title">
       People
     </div>
+    {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
+    {{#if tags}}
+    {{#foreach tags from="7" to="7"}}
     <div class="c-home-people__excerpt">
-      지속가능성을 위한 당신의 Vison 이야기가 세상을 변화시킵니다.
+      {{description}}
     </div>
     <div class="c-home-people__contents">
-      {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
-      {{#if tags}}
-      {{#foreach tags from="7" to="7"}}
       {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="3" order="published_at desc" as |posts|}}
       {{#if posts}}
       {{#foreach posts}}
@@ -215,24 +215,24 @@
       {{/foreach}}
       {{/if}}
       {{/get}}
-      
-      {{/foreach}}
-      {{/if}}
-      {{/get}}
+
     </div>
+    {{/foreach}}
+    {{/if}}
+    {{/get}}
     {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
-      {{#if tags}}
-      {{#foreach tags from="7" to="7"}}
+    {{#if tags}}
+    {{#foreach tags from="7" to="7"}}
     <a href="{{url}}">
-        <div class="c-home-people__btn">인터뷰 전체보기</div>
-      </a>
-      {{/foreach}}
-      {{/if}}
-      {{/get}}
+      <div class="c-home-people__btn">인터뷰 전체보기</div>
+    </a>
+    {{/foreach}}
+    {{/if}}
+    {{/get}}
   </div>
 
-{{!-- [Home Graphic Section] --}}
-{{#if @custom.tags_for_home_post_section}}
+  {{!-- [Home Graphic Section] --}}
+  {{#if @custom.tags_for_home_post_section}}
   <div class="max-grid">
     {{#get "tags" filter="slug:[{{@custom.tags_for_home_post_section}}]" include="count.posts" }}
     {{#if tags}}
@@ -241,30 +241,30 @@
       <div class="c-home-tags__title">{{name}}</div>
       <div class="c-home-photo-tag">
         <div class="c-home-photo-tag__bigger">
-        {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="10" order="published_at desc" as |posts|}}
-        {{#if posts}}
-        {{#foreach posts}}
-        {{#match @index "=" 0}}
-        {{> post-card cardFormat="popularest2"}}
-        {{else}}
-        {{/match}}
-        {{/foreach}}
-        {{/if}}
-        {{/get}}
+          {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="10" order="published_at desc" as |posts|}}
+          {{#if posts}}
+          {{#foreach posts}}
+          {{#match @index "=" 0}}
+          {{> post-card cardFormat="popularest2"}}
+          {{else}}
+          {{/match}}
+          {{/foreach}}
+          {{/if}}
+          {{/get}}
         </div>
         <div class="c-home-photo-tag__photos">
-        {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="10" order="published_at desc" as |posts|}}
-        {{#if posts}}
-        {{#foreach posts}}
-        {{#match @index "=" 0}}
-        {{else}}
-        {{> post-card cardFormat="photo"}}
-        {{/match}}
-        {{/foreach}}
-        {{/if}}
-        {{/get}}
+          {{#get "posts" filter="tag:{{slug}}" include="tags,authors" limit="10" order="published_at desc" as |posts|}}
+          {{#if posts}}
+          {{#foreach posts}}
+          {{#match @index "=" 0}}
+          {{else}}
+          {{> post-card cardFormat="photo"}}
+          {{/match}}
+          {{/foreach}}
+          {{/if}}
+          {{/get}}
         </div>
-        </div>
+      </div>
     </div>
     {{/foreach}}
     {{/if}}
